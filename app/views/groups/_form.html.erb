@@ -1,0 +1,28 @@
+<%= form_with(model: group) do |form| %>
+  <% if group.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="">
+    <%= form.label :user_ids, "Members" %>
+   <%= form.select :user_ids, User.all.where.not(id: Current.user.id).collect { |u| [u.email, u.id] }, {}, { multiple: true, class: "select2" } %>
+
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
