@@ -1,0 +1,12 @@
+---
+:verbose: true
+:concurrency: 8
+
+:timeout: 8
+
+:queues:
+  - default
+  - mailers
+  - active_storage_analysis
+  - active_storage_purge
+  
