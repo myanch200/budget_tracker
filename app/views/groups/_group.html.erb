@@ -2,11 +2,15 @@
   <p>
     <strong>Name:</strong>
     <%= group.name %>
-
-    <% group.users.each do |member| %>
-      <strong>Member:</strong>
-      <%= member.email %>
-    <% end %>
   </p>
+
+  <div>
+    <h1>Members</h1>
+     <% group.users.each do |member| %>
+     <div class="">
+        <%= member.email %>
+     </div>
+    <% end %>
+  </div>
 
 </div>

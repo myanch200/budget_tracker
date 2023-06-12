@@ -18,7 +18,7 @@
 
   <div class="">
     <%= form.label :user_ids, "Members" %>
-   <%= form.select :user_ids, User.all.where.not(id: Current.user.id).collect { |u| [u.email, u.id] }, {}, { multiple: true, class: "select2" } %>
+   <%= form.select :user_ids, User.all.where.not(id: Current.user.id).pluck(:email, :id), {}, multiple: true, data: {controller: 'slim'} %>
 
   </div>
 
